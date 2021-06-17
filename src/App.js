@@ -1,11 +1,10 @@
 import './App.css';
+import QuizPage from './Components/Quizpage/QuizPage';
 
 function App() {
   return (
     <div className="App">
-      
-      <h1>  AI Proctor </h1>
-      
+      <QuizPage />
     </div>
   );
 }
