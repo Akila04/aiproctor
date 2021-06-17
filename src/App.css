@@ -2,3 +2,61 @@
   text-align: center;
 }
 
+/* question-container */
+.question-container{
+  border-radius: 20px;
+  height: 150px;
+  margin:30px;
+  padding:5px;
+  box-shadow: 3px 3px 4px 4px rgb(224, 221, 221);
+}
+
+.question{
+  border-radius: 100%;
+  border: none;
+  height: 30px;
+  width:30px;
+  margin: 5px 6px;
+}
+
+
+/* reference */
+.ref{
+  margin: 20px;
+}
+.marked{
+  background-color: #6247AA;
+}
+
+.unmarked{
+  background-color: #A06CD5;
+}
+
+.current{
+  background-color: #C19EE0;
+}
+
+.round{
+  border-radius: 100%;
+  border: none;
+  height: 30px;
+  width:30px;
+  margin: 3px 5px;
+}
+
+.answers{
+  align-items: center;
+  display: inline-flex;
+}
+
+/* camera */
+.image{
+  height: 100px;
+  width:100px;
+  border-radius: 100%;
+  margin: 0 30px;
+  border: solid green 4px;
+}
+
+
+
