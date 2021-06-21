@@ -16,7 +16,8 @@
     width:30px;
     margin: 5px 6px;
     font-weight: 600;
-    font-size: medium
+    font-size: medium;
+    cursor: pointer;
   }
   
   
@@ -31,7 +32,7 @@
   }
   
   .unmarked{
-    background-color: #A06CD5;
+    background-color: #3f005e;
   }
   
   .current{
@@ -59,3 +60,8 @@
     margin: 0 30px;
     border: solid green 4px;
   }
+
+.camera {
+    width: 100px;
+    height: 100px;
+}

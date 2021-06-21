@@ -16,3 +16,18 @@ hr {
 .MuiRadio-colorSecondary.Mui-checked {
     color: #6c63ff !important;
 }
+
+.buttons {
+    margin: 20px !important;
+}
+
+.prevAndNextButton {
+    background-color: #6c63ff !important ;
+    color: #ffffff !important;
+}
+
+.markAndClearButton {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
