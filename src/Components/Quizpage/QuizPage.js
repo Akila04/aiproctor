@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import QuizComponent from '../QuizComponent/QuizComponent';
 import './QuizPage.css';
@@ -10,14 +10,16 @@ import BookmarksIcon from '@material-ui/icons/Bookmarks';
 import ClearIcon from '@material-ui/icons/Clear';
 import LeftSideMenu from '../LeftSideMenu/LeftSideMenu.js';
 
-const questionSet = {
-    questionNumber: 1,
-    question: "About how often did you feel tired out for no good reason ?",
-    answerOptions:  ["Option 1","Option 2", "Option 3", "Option 4"],
-    selectedAnswer : ""
-  }
 
-const QuizPage = () => {
+
+
+const QuizPage = ({questionSet,setoption,markQuestion, controls,navigate}) => {
+    
+    // to clear the selection
+    const clear= () =>{
+        const curr_question = questionSet.find((element) => element.status === "current")
+        setoption(curr_question.questionNumber, "")
+    }
 
     return (
         <div>
@@ -25,10 +27,10 @@ const QuizPage = () => {
             <div style={{marginTop: '8%'}}>
                 <Grid container spacing={2}>
                     <Grid item xs={4}>
-                        <LeftSideMenu />
+                        <LeftSideMenu questionSet = {questionSet} navigate={navigate} />
                     </Grid>
                     <Grid item xs={8}>
-                        <QuizComponent questionSet = {questionSet}  />
+                        <QuizComponent questionSet = {questionSet} setoption ={setoption}/> 
                     </Grid>
                 </Grid>
                 <div>
@@ -37,6 +39,7 @@ const QuizPage = () => {
                         color="primary"
                         startIcon={<ArrowBackIcon />}
                         className="buttons prevAndNextButton"
+                        onClick ={() => controls("prev")}
                     >
                         Prev
                     </Button>
@@ -45,6 +48,7 @@ const QuizPage = () => {
                         color="primary"
                         startIcon={<BookmarksIcon />}
                         className="buttons markAndClearButton"
+                        onClick = {() => markQuestion()}
                     >
                         Mark
                     </Button>
@@ -53,6 +57,7 @@ const QuizPage = () => {
                         color="primary"
                         startIcon={<ClearIcon />}
                         className="buttons markAndClearButton"
+                        onClick={()=>clear()}
                     >
                         Clear
                     </Button>
@@ -61,6 +66,7 @@ const QuizPage = () => {
                         color="primary"
                         endIcon={<ArrowForwardIcon />}
                         className="buttons prevAndNextButton"
+                        onClick ={() => controls("next")}
                     >
                         Next
                     </Button>

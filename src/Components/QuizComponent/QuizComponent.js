@@ -1,42 +1,47 @@
 import React, {useState} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import './quizComponent.css';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Radio from '@material-ui/core/Radio';
 
 
-const QuizComponent = (props) => {
-    const questionNumber = props.questionSet.questionNumber;
-    const question = props.questionSet.question;
-    const answerOption = props.questionSet.answerOptions;
-    const totalNumberOfQuestions = 15
+const QuizComponent = ({questionSet,setoption}) => {
 
-    const [answerOptions, setAnswerOptions] = useState(props.questionSet.selectedAnswer);
+
+    const totalNumberOfQuestions = questionSet.length;
+    const curr_question = questionSet.find((element) => element.status === "current") //get the current question
+
+    const [answerOption, setAnswerOption] = useState(curr_question.selectedAnswer);
 
     const optionHandler = (event) => {
-        console.log(event.target.value);
-        setAnswerOptions(event.target.value)
+        setAnswerOption(event.target.value)
     }
-    
+
+    // set the radio button according to the selectedAnswer
+    const setRadio =(option) =>{
+         return (option === curr_question.selectedAnswer) ? true : false
+    }
+
+
     return (
         <div className="root">
-            <p>Question {questionNumber} of {totalNumberOfQuestions}</p>
-            <p>{question}</p>
-            <RadioGroup aria-label="quiz" name="quiz" value={answerOptions} onChange={optionHandler}>
-                {answerOption.map((option, index) => (
-                    <div key={index}>
-                        <FormControlLabel 
+            
+              <p>Question {curr_question.questionNumber} of {totalNumberOfQuestions}</p>
+            <p>{curr_question.question}</p>
+            <RadioGroup aria-label="quiz" name="quiz" value={answerOption} onChange={optionHandler} >
+                {curr_question.answerOptions.map((option, index) => (
+                    <div key={index}>   
+                        <FormControlLabel  checked = {setRadio(option)} onClick={() => setoption(curr_question.questionNumber, option)}
                             value={option} 
                             control={
-                                <Radio  />
+                                <Radio />
                             } 
                             label={option} 
                         />
                         <hr />
-                    </div>
+                    </div>                    
                 ))}
-            </RadioGroup>
+            </RadioGroup> 
         </div>
     );
 }

@@ -51,11 +51,19 @@
     display: inline-flex;
   }
   
+  
   /* camera */
-  .image{
+  .webcam{
+    margin-top: 5px;
     height: 100px;
-    width:100px;
+    width: 100px;
     border-radius: 100%;
-    margin: 0 30px;
-    border: solid green 4px;
+    background-color: black;
+  }
+  .webcam-container{
+    align-items: center;
+    height: 110px;
+    width: 110px;
+    border-radius : 100%;
+    background-color: green;
   }
