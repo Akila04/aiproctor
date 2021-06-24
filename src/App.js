@@ -15,21 +15,21 @@ function App() {
 
   const [questionSet, setQuestionSet] = useState([   {
       questionNumber: 1,
-      question: "question1",
+      question: "question-1",
       answerOptions:  ["Option 1","Option 2", "Option 3", "Option 4"],
       selectedAnswer : "",
       status : "current"
     },
     {
       questionNumber: 2,
-      question: "question2",
+      question: "question-2",
       answerOptions:  ["Option 1","Option 2", "Option 3", "Option 4"],
       selectedAnswer : "",
       status : "unmarked"
     },
     {
     questionNumber: 3,
-    question: "question3",
+    question: "question-3",
     answerOptions:  ["Option 1","Option 2", "Option 3", "Option 4"],
     selectedAnswer : "",
     status : "unmarked"
