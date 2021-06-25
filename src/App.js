@@ -5,15 +5,30 @@ import QuizPage from './Components/Quizpage/QuizPage';
 
 function App() {
   
-  // const questionSet = {
-  //   questionNumber: 1,
-  //   question: "About how often did you feel tired out for no good reason ?",
-  //   answerOptions:  ["Option 1","Option 2", "Option 3", "Option 4"],
-  //   selectedAnswer : "",
-  //   status : "unmarked"
+
+  // {
+  //   "partA" : [ {
+  //     questionNumber: 1,
+  //     question: "question-1",
+  //     answerOptions:  ["Option 1","Option 2", "Option 3", "Option 4"],
+  //     selectedAnswer : "",
+  //     status : "unmarked"
+  //   },],
+  //   "partB" : [
+  //     {
+  //       questionNumber: 1,
+  //       question: "question-1",
+  //       answerOptions:  ["Option 1","Option 2", "Option 3", "Option 4"],
+  //       selectedAnswer : "",
+  //       status : "unmarked"
+  //     },
+  //   ]
   // }
 
-  const [questionSet, setQuestionSet] = useState([   {
+   
+
+  const [questionSet, setQuestionSet] = useState([
+    {
       questionNumber: 1,
       question: "question-1",
       answerOptions:  ["Option 1","Option 2", "Option 3", "Option 4"],
@@ -34,8 +49,29 @@ function App() {
     selectedAnswer : "",
     status : "unmarked"
   },
-  ]
-)
+  {
+    questionNumber: 4,
+    question: "question-4",
+    answerOptions:  ["Option 1","Option 2", "Option 3", "Option 4"],
+    selectedAnswer : "",
+    status : "unmarked"
+  },
+  {
+    questionNumber: 5,
+    question: "question-5",
+    answerOptions:  ["Option 1","Option 2", "Option 3", "Option 4"],
+    selectedAnswer : "",
+    status : "unmarked"
+  },
+  {
+    questionNumber: 6,
+    question: "question-6",
+    answerOptions:  ["Option 1","Option 2", "Option 3", "Option 4"],
+    selectedAnswer : "",
+    status : "unmarked"
+  },
+  ])
+
 
 // Select Option
 const setoption = (id,answerOption) =>{

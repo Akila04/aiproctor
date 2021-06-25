@@ -8,11 +8,20 @@ import Draggable from 'react-draggable';
 
 const LeftSideMenu = ({ questionSet, navigate }) => {
 
+
   const [flag, setFlag] = React.useState(true);
+
   const handleClick = () => {
     setFlag(!flag);
-  };
+  //   if(flag){
+  //   navigate((questionSet.length/2)+1)
+  // }
+  // else{ 
+  //   navigate(1)
+  // }
 
+  };
+  
   //web-cam constraints
   const videoConstraints = {
     width: 100,
@@ -22,9 +31,9 @@ const LeftSideMenu = ({ questionSet, navigate }) => {
 
   // Set the color of the buttons
   const setColor = (status) => {
-    if (status === "current") return { backgroundColor: "#C19EE0" }
+    if (status === "current") return { backgroundColor: "#FFE3FE" }
     else if (status === 'marked') return { backgroundColor: '#6247AA' }
-    else if (status === "answered") return { backgroundColor: '#FFE3FE' }
+    else if (status === "answered") return { backgroundColor: '#C19EE0' }
     else return { backgroundColor: '#A06CD5' }
   }
 
@@ -35,26 +44,28 @@ const LeftSideMenu = ({ questionSet, navigate }) => {
       {/* section */}
       <div style={{ textAlign: 'right', marginTop: '-4%' }}>
         <ToggleButtonGroup>
-          <Button variant="contained" onClick={handleClick} style={flag ? { backgroundColor: '#6c63ff', color: '#ffffff' } : {}}> part A</Button>
-          <Button variant="contained" onClick={handleClick} style={flag ? {} : { backgroundColor: '#6c63ff', color: '#ffffff' }}>part B</Button>
+          <Button variant="contained" onClick={()=>{handleClick();navigate(1)}} style={flag ? { backgroundColor: '#6c63ff', color: '#ffffff' } : {}}> part A</Button>
+          <Button variant="contained" onClick={()=>{handleClick();navigate((questionSet.length/2)+1)}} style={flag ? {} : { backgroundColor: '#6c63ff', color: '#ffffff' }}>part B</Button>
         </ToggleButtonGroup>
       </div>
 
       {/* question-container */}
       {/* part A */}
-      <div className="question-container" hidden={flag ? "" : "hidden"}>
-        {questionSet.map((question) => (
+      <div className="question-container" hidden={flag ? "" : "hidden"} >
+        {questionSet.slice(0,questionSet.length/2).map((question) => (
           <button key={question.questionNumber} className="question" style={setColor(question.status)} onClick={() => navigate(question.questionNumber)}>{question.questionNumber}</button>
 
         )
         )}
       </div>
 
-      {/* part B */}
-      <div className="question-container" hidden={flag ? "hidden" : ""}>
-        <button className="question"> 1</button>
-        <button className="question"> 2</button>
-        <button className="question"> 3</button>
+      {/* part B  */}
+      <div className="question-container" hidden={flag ? "hidden" : ""} >
+      {questionSet.slice(questionSet.length/2).map((question) => (
+          <button key={question.questionNumber} className="question" style={setColor(question.status)} onClick={() => navigate(question.questionNumber)}>{question.questionNumber}</button>
+
+        )
+        )}
       </div>
 
 
